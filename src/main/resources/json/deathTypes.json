@@ -1,39 +1,130 @@
 {
   "Shot": {
     "regex": "was shot by",
+    "prob": 90
+  },
+  "Hug a Zombie": {
+    "regex": "was slain by .+Zombie",
+    "prob": 100
+  },
+  "Hug a Creeper": {
+    "regex": "was blown up by Creeper",
+    "prob": 100
+  },
+  "Make Friends with Warden": {
+    "regex": "Warden",
+    "prob": 5
+  },
+  "Golem-ificated": {
+    "regex": "was slain by Iron Golem",
     "prob": 70
   },
-  "Hug a Zombie": "was slain by .+Zombie",
-  "Hug a Creeper": "was blown up by Creeper",
-  "Make Friends with Warden": "Warden",
-  "Golem-ificated": "was slain by Iron Golem",
-  "Spit it out! (Llama)": "Llama",
-  "What a big pig! (Hoglin)": "Hoglin",
-  "Sea invasion! (Guardian)": "Guardian",
-  "Jumping Jelly": "Slime|Magma Cube",
-  "Hug a cactus": "was pricked to death|walked into a cactus whilst trying to escape",
-  "Drowning": "drowned",
-  "Explosion": "blew up|blown up by",
-  "Small Height Fall": "hit the ground too hard",
-  "High Place Fall": "fell from a high place",
-  "Ladder Fall": "fell off a ladder",
-  "Green Vine Fall": "fell off some vines",
-  "Stalagmite Jumping": "was impaled on a stalagmite",
-  "Catching a Flying Anvil": "was squashed by a falling anvil",
-  "Brick Me Up!": "suffocated in a wall",
-  "Staring at the Stalactites Overhead": "was skewered by a falling stalactite",
-  "Playing Firewood": "went up in flames",
-  "Showed Torches How To Run And Burn": "burned to death",
-  "Staring at Firework Too Close": "went off with a bang",
-  "Lava Swimming": "tried to swim in lava",
-  "The Zeus Prank": "was struck by lightning",
-  "Lava Standing (Magma?)": "discovered the floor was lava",
-  "Stuck in Snow": "froze to death",
-  "BEE Careful (Bzz?)": "was stung to death",
-  "Prickly Berries (Is that spikes?!)": "was poked to death by a sweet berry bush",
-  "Vengeance of Poseidon (Trident)": "was impaled by",
-  "Just walk out of the World": "fell out of the world|didn't want to live in the same world as",
-  "Hurting Void Suicide (Get Hurt and feel the void)": "didn't want to live in the same world as",
-  "Die from /kill": "died",
-  "Just Die": ".+"
+  "Spit it out! (Llama)": {
+    "regex": "Llama",
+    "prob": 55
+  },
+  "What a big pig! (Hoglin)": {
+    "regex": "Hoglin",
+    "prob": 50
+  },
+  "Sea invasion! (Guardian)": {
+    "regex": "Guardian",
+    "prob": 45
+  },
+  "Jumping Jelly": {
+    "regex": "Slime|Magma Cube",
+    "prob": 40
+  },
+  "Hug a cactus": {
+    "regex": "was pricked to death|walked into a cactus whilst trying to escape",
+    "prob": 80
+  },
+  "Drowning": {
+    "regex": "drowned",
+    "prob": 100
+  },
+  "Explosion": {
+    "regex": "blew up|blown up by",
+    "prob": 90
+  },
+  "Small Height Fall": {
+    "regex": "hit the ground too hard",
+    "prob": 50
+  },
+  "High Place Fall": {
+    "regex": "fell from a high place",
+    "prob": 75
+  },
+  "Ladder Fall": {
+    "regex": "fell off a ladder",
+    "prob": 90
+  },
+  "Green Vine Fall": {
+    "regex": "fell off some vines",
+    "prob": 75
+  },
+  "Stalagmite Jumping": {
+    "regex": "was impaled on a stalagmite",
+    "prob": 80
+  },
+  "Catching a Flying Anvil": {
+    "regex": "was squashed by a falling anvil",
+    "prob": 80
+  },
+  "Brick Me Up!": {
+    "regex": "suffocated in a wall",
+    "prob": 90
+  },
+  "Staring at the Stalactites Overhead": {
+    "regex": "was skewered by a falling stalactite",
+    "prob": 70
+  },
+  "Playing Firewood": {
+    "regex": "went up in flames",
+    "prob": 88
+  },
+  "Showing Torches How To Run And Burn": {
+    "regex": "burned to death",
+    "prob": 88
+  },
+  "Staring at Firework Too Close": {
+    "regex": "went off with a bang",
+    "prob": 60
+  },
+  "Lava Swimming": {
+    "regex": "tried to swim in lava",
+    "prob": 90
+  },
+  "The Zeus Prank": {
+    "regex": "was struck by lightning",
+    "prob": 12
+  },
+  "Lava Standing (Magma?)": {
+    "regex": "discovered the floor was lava",
+    "prob": 70
+  },
+  "Stuck in Snow": {
+    "regex": "froze to death",
+    "prob": 45
+  },
+  "BEE Careful (Bzz?)": {
+    "regex": "was stung to death",
+    "prob": 50
+  },
+  "Prickly Berries (Is that spikes?!)": {
+    "regex": "was poked to death by a sweet berry bush",
+    "prob": 60
+  },
+  "Vengeance of Poseidon (Trident)": {
+    "regex": "was impaled by",
+    "prob": 40
+  },
+  "Just walk out of the World": {
+    "regex": "fell out of the world|didn't want to live in the same world as",
+    "prob": 10
+  },
+  "Just Die": {
+    "regex": ".+",
+    "prob": 10
+  }
 }

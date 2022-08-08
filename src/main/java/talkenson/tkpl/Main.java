@@ -7,14 +7,20 @@ import talkenson.tkpl.lib.DeathTypes;
 
 public final class Main extends JavaPlugin {
   private static Main instance;
+  DeathTypes dt = null;
+  Setup setupInstance = null;
+
+  @Override
+  public void onLoad() {
+    Bukkit.getLogger().info("DeathShuffle loading...");
+    this.dt = new DeathTypes();
+  }
 
   @Override
   public void onEnable() {
     instance = this;
-    // Plugin startup logic
-    Bukkit.getLogger().info("DeathShuffle loading...");
-    DeathTypes dt = new DeathTypes();
-    var setupInstance = new Setup(dt);
+    Bukkit.getLogger().info("DeathShuffle starting...");
+    this.setupInstance = new Setup(dt);
     Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(setupInstance, dt), this);
   }
 

@@ -24,14 +24,17 @@ public class Countdown {
                   scheduler.cancelTask(timer);
                   return;
                 }
-                startValue--;
                 if (startValue % 60 == 0) {
                   Msg.broadcast((int) (startValue / 60) + " minutes left to complete a challenge.");
+                  startValue--;
                   return;
                 }
                 if (startValue <= 15) {
                   Msg.broadcast(startValue + " seconds left to complete.", "&c");
+                  startValue--;
+                  return;
                 }
+                startValue--;
               }
             },
             0L,

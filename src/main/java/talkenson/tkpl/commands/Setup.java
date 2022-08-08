@@ -19,17 +19,23 @@ public class Setup {
   HashMap<String, String> playerToDeathType = new HashMap<>();
   HashMap<String, Boolean> playerStatuses = new HashMap<>();
   List<String> deathTypes = null;
+  List<Float> deathProbs = null;
   int roundTaskId = -1;
   boolean isGameActive = false;
   Countdown countdown = new Countdown();
 
   public Setup(DeathTypes dt) {
     deathTypes = dt.getDeathTypes();
+    deathProbs = dt.getDeathProbabilities();
     new CommandBase("dsw", 1, true) {
       @Override
       public boolean onCommand(CommandSender sender, String[] args) {
         try {
           if (Objects.equals(args[0], "start")) {
+            if (isGameActive) {
+              Msg.send(sender, "To start a new game you need to stop the previous game");
+              return true;
+            }
             startNewRound();
             return true;
           } else if (Objects.equals(args[0], "stop")) {
@@ -37,17 +43,6 @@ public class Setup {
             return true;
           } else if (Objects.equals(args[0], "list")) {
             Msg.send(sender, deathTypes.toString());
-            return true;
-          } else if (Objects.equals(args[0], "change")) {
-            Player player = (Player) sender;
-            if (isGameActive) {
-              var target = Utils.getRandomFromArray(deathTypes);
-              playerToDeathType.replace(player.getName(), target);
-              playerStatuses.replace(player.getName(), false);
-              Msg.send(player, "New Task - Die from a &c[" + target + "]");
-            } else {
-              Msg.send(player, "&cNo running game at the moment");
-            }
             return true;
           } else {
             Msg.send(sender, "&4Unknown option passed");
@@ -61,7 +56,7 @@ public class Setup {
 
       @Override
       public String getUsage() {
-        return "/dsw start | stop | change";
+        return "/dsw start | stop";
       }
     }.enableDelay(2);
   }
@@ -70,7 +65,7 @@ public class Setup {
     var playerCollection = Bukkit.getOnlinePlayers();
     Msg.broadcast("You have 5 minutes to:");
     for (Player player : playerCollection) {
-      var target = Utils.getRandomFromArray(deathTypes);
+      var target = Utils.getRandomFromArrayProbabilities(deathTypes, deathProbs);
       playerToDeathType.put(player.getName(), target);
       playerStatuses.put(player.getName(), false);
       Msg.send(player, "Die from a &c[" + target + "]");
@@ -78,6 +73,7 @@ public class Setup {
 
     isGameActive = true;
     countdown.runNewTimer(300);
+    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamerule keepInventory true");
 
     roundTaskId =
         Bukkit.getScheduler()
@@ -92,6 +88,7 @@ public class Setup {
   private void finishRound(String cause) {
     Bukkit.getScheduler().cancelTask(roundTaskId);
     countdown.stopTimer();
+    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamerule keepInventory false");
 
     if (!Objects.equals(cause, "allDone")) {
       if (Objects.equals(cause, "stopCommand")) {
