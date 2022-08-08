@@ -1,0 +1,4 @@
+name: DeathShuffle
+version: '${project.version}'
+main: talkenson.tkpl.Main
+api-version: 1.18
